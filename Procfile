@@ -1,0 +1,1 @@
+web: exec ./vendor/bin/heroku-php-nginx -C ./heroku/configuration/nginx.conf -F ./heroku/configuration/fpm.conf ./public

@@ -1,0 +1,21 @@
+{
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    }
+  ],
+  "env": {
+    "APP_DEBUG": {
+      "value": "0"
+    },
+    "APP_ENV": {
+      "value": "prod"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
+    }
+  }
+}
