@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<html>
+
+    <head>
+        <title>Kindle notes parser</title>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+    </head>
+
+
+    <body>
+
+        {% include 'navigation.html.twig' %}
+
+        <div id="formulaire_central">
+
+            {% include 'header.html.twig' %}
+
+            <div id="face"></div>
+
+            <h1>Transformez vos notes Kindle en fiches de revision de vocabulaire : </h1>
+
+            <form action="cible.php" method="post" enctype="multipart/form-data">
+
+                <p>
+                    Formulaire d'envoi de fichier :<br />
+                    <input type="file" name="monfichier" /><br />
+                    <input type="submit" value="Envoyer le fichier" /> <br/>
+                </p>
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
+

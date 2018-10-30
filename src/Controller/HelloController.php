@@ -14,4 +14,13 @@ class HelloController extends AbstractController
     {
         return $this->render('hello.html.twig');
     }
+
+    /**
+    * @Route("/homepage", name="homepage")
+     */
+
+    public function homepage()
+    {
+        return $this->render('homepage.html.twig');
+    }
 }
