@@ -5,17 +5,16 @@
     <head>
         <title>{% block title %} Kindle notes parser {% endblock %} </title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}" />
     </head>
-
 
     <body>
         {% block navig %}
             <nav>
                 <p>
-                    <a href="/homepage">Accueil</a>
+                    <a href="{{ path('homepage') }}">Accueil</a>
                     <br/>
-                    <a href="/booklist">Vos livres</a>
+                    <a href="{{ path('booklist') }}">Vos livres</a>
                 </p>
             </nav>
         {% endblock %}
