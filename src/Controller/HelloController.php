@@ -7,13 +7,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class HelloController extends AbstractController
 
 {
-    /**
-    * @Route("/hello", name="hello")
-    */
-    public function hello()
-    {
-        return $this->render('hello.html.twig');
-    }
 
     /**
     * @Route("/homepage", name="homepage")
@@ -22,5 +15,14 @@ class HelloController extends AbstractController
     public function homepage()
     {
         return $this->render('homepage.html.twig');
+    }
+
+    /**
+     * @Route("/booklist", name="booklist")
+     */
+
+    public function booklist()
+    {
+        return $this->render('booklist.html.twig');
     }
 }

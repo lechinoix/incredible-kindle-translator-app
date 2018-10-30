@@ -1,20 +1,6 @@
-<!DOCTYPE HTML>
+{% extends 'base.html.twig' %}
 
-<html>
-
-    <head>
-        <title>Kindle notes parser</title>
-        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-    </head>
-
-
-    <body>
-
-        {% include 'navigation.html.twig' %}
-
-        <div id="formulaire_central">
-
-            {% include 'header.html.twig' %}
+{% block formulaire_central %}
 
             <div id="face"></div>
 
@@ -30,9 +16,4 @@
 
             </form>
 
-        </div>
-
-    </body>
-
-</html>
-
+{% endblock %}
