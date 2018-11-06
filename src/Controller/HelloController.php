@@ -48,8 +48,6 @@ class HelloController extends AbstractController
             ->getRepository(Book::class)
             ->findAll();
 
-        dump($listed_books);
-
         if (!$listed_books) {
             $listed_books = array( array(
                 'title' => 'no book found' //si pas de livre, cela s'affichera
