@@ -1,25 +1,30 @@
 {% extends 'base.html.twig' %}
 {% block formulaire_central %}
+{#{% form_theme formBook 'bootstrap_4_layout.html.twig' %}#}
+
 
 {{ form_start(formBook) }}
-<div class="form-group">
-    <label for = "bookTitle">Titre</label>
-    {{ form_widget(formBook.title) }}
 
-    <br/>
+    <div class="form-group">
+        {#<label for = "bookTitle">Titre</label>#}
+        {{ form_row(formBook.title, {'attr': {'placeholder': 'Titre du livre'}}) }}
 
-    <label for ="BookOwnerId">Identifiant du proprietaire</label>
-    {{ form_widget(formBook.owner_id) }}
+        <br/>
 
-    <br/>
+        {#<label for ="BookOwnerId">Identifiant du proprietaire</label>#}
+        {{ form_row(formBook.owner_id, {'attr': {'placeholder': 42}}) }}
 
-    <label for = "BookFileName">Nom du fichier</label>
-    {{ form_widget(formBook.file_name) }}
+        <br/>
 
-    <br/>
+        {#<label for = "BookFileName">Nom du fichier</label>#}
+        {{ form_row(formBook.file_name, {'attr': {'placeholder': 'Nom du fichier'}}) }}
 
-</div>
+        <br/>
 
-    {{ form_end(formBook) }}
+        <button type = 'submit'>Envoyer ! </button>
+
+    </div>
+
+{{ form_end(formBook) }}
 
 {% endblock %}

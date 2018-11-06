@@ -61,6 +61,10 @@ class HelloController extends AbstractController
             ->add('file_name')
             ->getForm();
 
+        $form->handleRequest($request);
+
+        dump($book);
+
 //        $book->setBookId(rand(0,32767));
 //        $book->setOwnerId(42);
 //        $book->setName('fake book name');
