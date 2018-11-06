@@ -9,12 +9,17 @@
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
+        "symfony/form": "*",
         "symfony/framework-bundle": "*",
+        "symfony/http-foundation": "*",
         "symfony/orm-pack": "^1.0",
         "symfony/profiler-pack": "^1.0",
+        "symfony/security-bundle": "*",
+        "symfony/validator": "*",
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.8",
         "symfony/web-server-bundle": "*"

@@ -1,19 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block formulaire_central %}
+            <br>
 
-            <div id="face"></div>
+            <div id="books_picture"> </div>
 
-            <h1>Transformez vos notes Kindle en fiches de revision de vocabulaire : </h1>
+            <h1>Voici une liste de vos livres charges dans notre base de donnees : </h1>
 
-            <form action="cible.php" method="post" enctype="multipart/form-data">
+            <br>
+
+            {#<div id="face"></div>#}
+
+            <h1>Chargez vos notes Kindle et transformez-les en fiches de revision de vocabulaire : </h1>
+
+            <form action="/reception" method="post" enctype="multipart/form-data">
 
                 <p>
                     Formulaire d'envoi de fichier :<br />
-                    <input type="file" name="monfichier" /><br />
+                    <input type="file" name="monfichier" /> <br />
                     <input type="submit" value="Envoyer le fichier" /> <br/>
                 </p>
 
             </form>
 
 {% endblock %}
+

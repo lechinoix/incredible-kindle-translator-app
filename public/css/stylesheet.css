@@ -65,7 +65,6 @@ div#face {                          /* ICI je met du css pour une div qui a un i
     width: 400px;
     height: 400px;
     background-image: url('https://images.unsplash.com/photo-1537816042568-af3c8020f7cc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=848ac0c38bbd20fcf8ee105bd760c5d5&auto=format&fit=crop&w=1234&q=80');
-    /* display: inline-block; */
     background-size: cover;
     background-position-y: center;
     box-shadow: 1px 1px 10px black;
@@ -76,7 +75,7 @@ div#face {                          /* ICI je met du css pour une div qui a un i
 div#books_picture{
     width: 20.5em;
     height: 30.5em;
-    background-image: url("../toa-heftiba.jpg");
+    background-image: url("https://source.unsplash.com/DakDfhDHMSA");
     background-size: cover;
     background-position-y: center;
 }
@@ -122,5 +121,3 @@ table, th, td {
 .tooltip {
     visibility: hidden;
 }
-
-/*         Pour des images / photos d'artiste libre de droit vas sur    https://unsplash.com/     */

@@ -26,7 +26,12 @@
 
                     <form action="#" method="post" enctype="multipart/form-data">
                         <p>
-                            Bonjour 'votre pseudo'  ! Ca n'est pas vous ? Modifier votre pseudo ici :
+                            Bonjour  'cookie'  ! Ca n'est pas vous ? Modifier votre pseudo ici :
+
+                            {#{{ form_start(form) }}#}
+                            {#{{ form_widget(form) }}#}
+                            {#{{ form_end(form) }}#}
+
                             <input type="text" name="pseudonyme" />
                             <input type="submit" value="Valider votre pseudo" />
                         </p>
@@ -48,4 +53,3 @@
     </body>
 
 </html>
-
