@@ -20,9 +20,30 @@ class HelloController extends AbstractController
      * @Route("/homepage", name="homepage")
      */
 
-    public function homepage()
+    public function homepage(Request $request, ObjectManager $manager)
     {
-        return $this->render('homepage.html.twig');
+        $book = new Book();
+
+        $form = $this->createFormBuilder($book)
+            ->add('title', TextType::class, [
+                'attr' => [
+                    'placeholder' => "titre du livre"
+                ]
+            ])
+            ->add('owner_id')
+            ->add('file_name')
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager -> persist($book);
+            $manager -> flush();
+        }
+
+        return $this->render('homepage.html.twig', array(
+            'formBook' => $form->createView(),
+        ));
     }
 
     /**
@@ -70,7 +91,7 @@ class HelloController extends AbstractController
             $manager -> flush();
         }
 
-        dump($book);
+//        dump($book);
 
 //        $book->setBookId(rand(0,32767));
 //        $book->setOwnerId(42);
