@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class HelloController extends AbstractController
 
@@ -46,7 +47,7 @@ class HelloController extends AbstractController
      * @Route("/new", name="new")
      */
 
-    public function new(Request $request)
+    public function new(Request $request, ObjectManager $manager)
     {
 
         $book = new Book();
@@ -63,6 +64,12 @@ class HelloController extends AbstractController
 
         $form->handleRequest($request);
 
+        if($form->isSubmitted() && $form->isValid()){
+//            $book->setId(rand(0,32767));
+            $manager -> persist($book);
+            $manager -> flush();
+        }
+
         dump($book);
 
 //        $book->setBookId(rand(0,32767));
@@ -73,5 +80,4 @@ class HelloController extends AbstractController
             'formBook' => $form->createView(),
         ));
     }
-
 }

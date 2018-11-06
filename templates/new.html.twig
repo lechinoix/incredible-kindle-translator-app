@@ -6,17 +6,14 @@
 {{ form_start(formBook) }}
 
     <div class="form-group">
-        {#<label for = "bookTitle">Titre</label>#}
         {{ form_row(formBook.title, {'attr': {'placeholder': 'Titre du livre'}}) }}
 
         <br/>
 
-        {#<label for ="BookOwnerId">Identifiant du proprietaire</label>#}
         {{ form_row(formBook.owner_id, {'attr': {'placeholder': 42}}) }}
 
         <br/>
 
-        {#<label for = "BookFileName">Nom du fichier</label>#}
         {{ form_row(formBook.file_name, {'attr': {'placeholder': 'Nom du fichier'}}) }}
 
         <br/>
