@@ -52,7 +52,11 @@ class HelloController extends AbstractController
         $book = new Book();
 
         $form = $this->createFormBuilder($book)
-            ->add('title')
+            ->add('title', TextType::class, [
+                'attr' => [
+                    'placeholder' => "titre du livre"
+                ]
+            ])
             ->add('owner_id')
             ->add('file_name')
             ->getForm();
