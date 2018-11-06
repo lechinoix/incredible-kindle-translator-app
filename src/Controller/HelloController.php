@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class HelloController extends AbstractController
 
@@ -32,7 +34,7 @@ class HelloController extends AbstractController
                 ]
             ])
             ->add('owner_id')
-            ->add('file_name')
+            ->add('file_name') //, FileType::class
             ->getForm();
 
         $form->handleRequest($request);
@@ -60,15 +62,6 @@ class HelloController extends AbstractController
             'formBook' => $form->createView(),
             'books' => $listed_books,
         ));
-    }
-
-    /**
-     * @Route("/booklist", name="booklist")
-     */
-
-    public function booklist()
-    {
-        return $this->render('booklist.html.twig');
     }
 
     /**
