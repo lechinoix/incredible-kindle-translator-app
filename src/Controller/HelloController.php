@@ -48,25 +48,19 @@ class HelloController extends AbstractController
             ->getRepository(Book::class)
             ->findAll();
 
+        dump($listed_books);
+
         if (!$listed_books) {
-            throw $this->createNotFoundException(
-                'No book found'
-            );
-        }
-        else {
-            $titles = [];
-            $i = 0;
-            while ($i < count($listed_books)){
-                array_push($titles, $listed_books[$i]->getTitle());
-                $i++;
-            }
+            $listed_books = array( array(
+                'title' => 'no book found' //si pas de livre, cela s'affichera
+            ));
         }
 
 //      On affiche le final
 
         return $this->render('homepage.html.twig', array(
             'formBook' => $form->createView(),
-            'bookTitles' => $titles
+            'books' => $listed_books,
         ));
     }
 

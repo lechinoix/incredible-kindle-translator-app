@@ -7,14 +7,15 @@
 
             <h1>Voici une liste de vos livres charges dans notre base de donnees : </h1>
 
-        <ul>
-            {% for title in bookTitles %}
-                <li>{{ title|e }}</li>
-            {% endfor %}
-        </ul>
+            <br/>
 
+            <ul>
+                {% for book in books %}
+                    <li>{{ book.title|e }}</li>
+                {% endfor %}
+            </ul>
 
-            <br>
+            <br/>
 
             <h1>Chargez vos notes Kindle et transformez-les en fiches de revision de vocabulaire : </h1>
 
