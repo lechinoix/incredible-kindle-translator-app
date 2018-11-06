@@ -22,6 +22,7 @@ class HelloController extends AbstractController
 
     public function homepage(Request $request, ObjectManager $manager)
     {
+//        la partie "formulaire"
         $book = new Book();
 
         $form = $this->createFormBuilder($book)
@@ -41,8 +42,31 @@ class HelloController extends AbstractController
             $manager -> flush();
         }
 
+//      La partie "liste de livres"
+
+        $listed_books = $this->getDoctrine()
+            ->getRepository(Book::class)
+            ->findAll();
+
+        if (!$listed_books) {
+            throw $this->createNotFoundException(
+                'No book found'
+            );
+        }
+        else {
+            $titles = [];
+            $i = 0;
+            while ($i < count($listed_books)){
+                array_push($titles, $listed_books[$i]->getTitle());
+                $i++;
+            }
+        }
+
+//      On affiche le final
+
         return $this->render('homepage.html.twig', array(
             'formBook' => $form->createView(),
+            'bookTitles' => $titles
         ));
     }
 
@@ -64,41 +88,4 @@ class HelloController extends AbstractController
         return $this->render('booklist.html.twig');
     }
 
-    /**
-     * @Route("/new", name="new")
-     */
-
-    public function new(Request $request, ObjectManager $manager)
-    {
-
-        $book = new Book();
-
-        $form = $this->createFormBuilder($book)
-            ->add('title', TextType::class, [
-                'attr' => [
-                    'placeholder' => "titre du livre"
-                ]
-            ])
-            ->add('owner_id')
-            ->add('file_name')
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-//            $book->setId(rand(0,32767));
-            $manager -> persist($book);
-            $manager -> flush();
-        }
-
-//        dump($book);
-
-//        $book->setBookId(rand(0,32767));
-//        $book->setOwnerId(42);
-//        $book->setName('fake book name');
-
-        return $this->render('/new.html.twig', array(
-            'formBook' => $form->createView(),
-        ));
-    }
 }
