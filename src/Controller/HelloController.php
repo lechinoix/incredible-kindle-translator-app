@@ -16,8 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class HelloController extends AbstractController
-
 {
+
     /**
      * @Route("/homepage", name="homepage")
      */
@@ -42,6 +42,7 @@ class HelloController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $manager -> persist($book);
             $manager -> flush();
+            return $this->redirectToRoute('homepage');
         }
 
 //      La partie "liste de livres"
@@ -72,5 +73,4 @@ class HelloController extends AbstractController
     {
         return $this->render('booklist.html.twig');
     }
-
 }
